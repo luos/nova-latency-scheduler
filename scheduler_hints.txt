@@ -1,0 +1,8 @@
+/var/log/nova/nova-scheduler.log:2017-04-09 19:08:47.035 3123 DEBUG latency_scheduler.latency_filter [req-94b5092a-e│                                                                                                             
+0c0-41c5-bff4-a78b5d3d39d8 5f14c47f62e2481ba6b79534a82bcda4 329b3f3bab484a62bc176caf142389b2 - - -] GLLSRequestSpec(│                                                                                                             
+availability_zone='nova',flavor=Flavor(2),force_hosts=None,force_nodes=None,id=<?>,ignore_hosts=None,image=ImageMeta│                                                                                                             
+(93c6eb95-8456-4a56-8785-86539eddb50e),instance_group=None,instance_uuid=d526b838-a259-4c84-bb20-5b4de5b5e001,limits│                                                                                                             
+=SchedulerLimits,num_instances=1,numa_topology=None,pci_requests=InstancePCIRequests,project_id='329b3f3bab484a62bc1│                                                                                                             
+76caf142389b2',requested_destination=None,retry=None,scheduler_hints={latency_to=['10,compute'],latency_to2=['20,bam│                                                                                                             
+boozle']},security_groups=<?>) host_passes /usr/local/lib/python2.7/dist-packages/latency_scheduler/latency_filter.p│                                                                                                             
+y:26     
