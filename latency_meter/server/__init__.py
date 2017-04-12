@@ -1,10 +1,7 @@
-import BaseHTTPServer
-import SimpleHTTPServer
-import SocketServer
 import threading
 from BaseHTTPServer import BaseHTTPRequestHandler
 from SimpleHTTPServer import SimpleHTTPRequestHandler
-from SocketServer import ThreadingTCPServer, TCPServer
+from SocketServer import TCPServer
 
 
 class MeasurementHandler():
@@ -15,11 +12,16 @@ class MeasurementHandler():
 
         :type measurement: Measurement
         """
-        self.data[measurement.from_host] = {
-            measurement.to_host: measurement.average_latency
-        }
+        if measurement.from_host in self.data:
+            self.data[measurement.from_host][measurement.to_host] = measurement.average_latency
+        else:
+            self.data[measurement.from_host] = {
+                measurement.to_host: measurement.average_latency
+            }
 
     def get_measurements_from_host(self, host):
+        if host not in self.data:
+            return {}
         return self.data[host]
 
 
@@ -73,7 +75,7 @@ def start_server(port=9913, logger=None):
 def start_server_on_other_thread(logger):
     logger.debug("GLLS Server started")
     thread = threading.Thread(target=lambda: start_server(logger=logger))
-    thread.start()
+    #thread.start()
 
 
 class MockLogger():
