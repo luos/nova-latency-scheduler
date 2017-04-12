@@ -24,7 +24,7 @@ class LatencyAwareFilter(BaseHostFilter):
         if filter_backend is not None:
             self.filter_backend = filter_backend
         else:
-            self.filter_backend = LatencyHostFilter(StaticHostLatencyService())
+            self.filter_backend = create_default_filter_backend()
         start_server_on_other_thread(LOG)
 
     def host_passes(self, host_state, spec_obj):
