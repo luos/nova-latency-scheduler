@@ -7,4 +7,5 @@ six==1.10.0
 tox==2.6.0
 virtualenv==15.1.0
 git+git://github.com/openstack/nova
+git+git://github.com/openstack/heat
 

@@ -1,13 +1,13 @@
 from unittest import TestCase
 
-from latency_filter import LatencyHostFilter, HostLatencyService
+from network_filters import LatencyFilter, HostLatencyService
 
 
 class TestLatencyHostFilter(TestCase):
     def setUp(self):
         super(TestLatencyHostFilter, self).setUp()
         self.latencies = MockHostLatencyService()
-        self.filter = LatencyHostFilter(self.latencies)
+        self.filter = LatencyFilter(self.latencies)
 
     def test_given_a_host_with_no_hints_passes(self):
         self.assertPasses("test-host", {})
@@ -60,6 +60,24 @@ class TestLatencyHostFilter(TestCase):
         })
         self.assertFails('test-host', {'latency_to': ['1001,target1', '500,target2']})
 
+
+    def test_given_multiple_expectations_when_successful_passes(self):
+        self.latencies.returns({
+            'target3': 24234,
+            'target2': 2000,
+            'target1': 1000,
+        })
+        self.assertPasses('test-host', {'latency_to': ['1001,target1', '2001,target2']})
+
+    def test_given_multiple_expectations_one_of_them_fails_then_fails(self):
+        self.latencies.returns({
+            'target3': 24234,
+            'target2': 2002,
+            'target1': 1000,
+        })
+        self.assertFails('test-host', {'latency_to': ['1001,target1', '2001,target2']})
+
+
     def assertFails(self, host, hints):
         assert self.filter.host_passes(host, hints) == False
 
@@ -70,7 +88,7 @@ class TestLatencyHostFilter(TestCase):
 class MockHostLatencyService(HostLatencyService):
     latencies = {}
 
-    def get_measurements_from_host(self, host):
+    def get_latencies_from_host(self, host):
         return self.latencies
 
     def returns(self, latencies):
