@@ -50,7 +50,7 @@ class NetworkAwareFilter(BaseHostFilter):
 
         bandwidth_passes = self.bandwidth_filter.host_passes(host_state.host, self.get_bandwidth_hints(spec_obj))
 
-        LOG.debug(
+        LOG.info(
             "GLLS " + host_state.host + " Latency passes: " + str(
                 latency_passes) + ", Bandwidth passes: " + str(bandwidth_passes) + " with hints: " +
             str(spec_obj.scheduler_hints))
@@ -142,7 +142,7 @@ class LatencyFilter():
         return True
 
     def _log(self, log):
-        LOG.debug(LOG_TAG + " " + str(log))
+        LOG.info(LOG_TAG + " " + str(log))
 
 
 class BandwidthHint():
@@ -173,7 +173,7 @@ class BandwidthFilter():
         """
         if len(hints) > 0:
             bandwidths = self.measurements.get_bandwidth_from_host(hostname)
-            LOG.debug(LOG_TAG + " BANDWIDTH to host " + hostname + " -" + str(bandwidths))
+            LOG.info(LOG_TAG + " BANDWIDTH to host " + hostname + " -" + str(bandwidths))
             for hint in hints:
                 if hint.to_host not in bandwidths:
                     return False
