@@ -1,0 +1,47 @@
+heat_template_version: ocata
+description: >
+  This stack is an example how to set up a main_server with latency and bandwidthexpectations,
+  then how to create an additional server depending on the first one.
+
+parameters:
+  NetID:
+    type: string
+    description: Network ID to use for the instance.
+
+resources:
+  main_server:
+    type: OS::NetworkAware::Server
+    properties:
+      image: cirros
+      flavor: test-flavor
+      networks:
+      - network: { get_param: NetID }
+      expected_bandwidth:
+        - { to_host: gateway-1, bandwidth: 500_000 }
+        - { to_host: gateway-2, bandwidth: 20_000 }
+        - { to_host: logger-1, bandwidth: 1000 }
+      maximum_latency:
+        - { to:host: gateway-1, latency: 30 }
+        - { to:host: gateway-2, latency: 60 }
+        - { to:host: logger-1, latency: 100 }
+  secondary_server:
+    depends_on: main_server
+    properties:
+      image: cirros
+      flavor: test-flavor
+     expected_bandwidth:
+        - { to_host: get_attr: [ main_server, host ], bandwidth: 1000 }
+        - { to_host: gateway-5, bandwidth: 120 }
+      maximum_latency:
+        - { to:host: get_attr: [ main_server, host ], latency: 20 }
+        - { to:host: gateway-5, latency: 112 }
+
+
+outputs:
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ main_server, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ main_server, first_address ] }
+

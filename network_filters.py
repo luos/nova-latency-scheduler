@@ -84,10 +84,12 @@ class HostBandwidthService():
 class StaticHostLatencyService(HostLatencyService, HostBandwidthService):
     latencies = {
         'node-2': {
-            'node-3': 15
+            'node-3': 15,
+            'node-2': 10
         },
         'node-3': {
-            'node-3': 500
+            'node-3': 500,
+            'node-2': 10
         }
     }
 

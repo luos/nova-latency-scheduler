@@ -1,0 +1,29 @@
+heat_template_version: ocata
+description: Launch a basic instance with CirrOS image using the
+             ``m1.tiny`` flavor, ``mykey`` key,  and one network.
+
+parameters:
+  NetID:
+    type: string
+    description: Network ID to use for the instance.
+
+resources:
+  main_server:
+    type: OS::NetworkAware::Server
+    properties:
+      image: cirros
+      flavor: test-flavor
+      networks:
+      - network: { get_param: NetID }
+      expected_bandwidth:
+        - { to_host: node-2, bandwidth: 99 }
+        - { to_host: node-3, bandwidth: 120 }
+
+outputs:
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ main_server, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ main_server, first_address ] }
+
