@@ -84,25 +84,38 @@ class HostBandwidthService():
 class StaticHostLatencyService(HostLatencyService, HostBandwidthService):
     latencies = {
         'node-2': {
-            'node-3': 15,
-            'node-2': 10
+            'node-2': 0,
+            'node-3': 30,
+            'node-4': 100
         },
         'node-3': {
-            'node-3': 500,
-            'node-2': 10
+            'node-2': 30,
+            'node-3': 0,
+            'node-4': 45
+        },
+        'node-4': {
+            'node-2': 100,
+            'node-3': 45,
+            'node-4': 0
         }
     }
 
     bandwidth = {
         'node-2': {
-            'node-3': 1000,
-            'node-2': 500,
+            'node-2': 1000000,
+            'node-3': 100000,
+            'node-4': 15000,
         },
         'node-3': {
-            'node-3': 250,
-            'node-2': 350,
-        }
-
+            'node-2': 100000,
+            'node-3': 1000000,
+            'node-4': 50000,
+        },
+        'node-4': {
+            'node-2': 15000,
+            'node-3': 50000,
+            'node-4': 1000000,
+        },
     }
 
     def get_latencies_from_host(self, host):
