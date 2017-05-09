@@ -1,0 +1,525 @@
+{
+    "args": "/home/ubuntu/vmtpenv/bin/vmtp -d -c vmtp.cfg -r adminrc -p <MASKED> --json test.json", 
+    "auth_url": "http://controller:35357/v3", 
+    "date": "2017-05-07 13:47:11", 
+    "encapsulation": "vxlan", 
+    "flows": [
+        {
+            "az_from": "nova:node-3", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM same network fixed IP (intra-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.1.3", 
+            "ip_to": "192.168.1.10", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 500, 
+                    "rtt_ms": 1.57, 
+                    "throughput_kbps": 2323328, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 13, 
+                    "rtt_ms": 2.03, 
+                    "throughput_kbps": 1858625, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 232, 
+                    "rtt_ms": 0.61, 
+                    "throughput_kbps": 2731780, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 1.27, 
+                    "pkt_size": 128, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 33753, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 0.0, 
+                    "pkt_size": 1024, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 131706, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 2.78, 
+                    "pkt_size": 8192, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 994568, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "0.957", 
+                            "rtt_max_ms": "1.284", 
+                            "rtt_min_ms": "0.695", 
+                            "rtt_stddev": "0.186", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "0.986", 
+                            "rtt_max_ms": "1.293", 
+                            "rtt_min_ms": "0.775", 
+                            "rtt_stddev": "0.161", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 1500, 
+                            "rtt_avg_ms": "1.067", 
+                            "rtt_max_ms": "1.373", 
+                            "rtt_min_ms": "0.691", 
+                            "rtt_stddev": "0.227", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-3", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network fixed IP (intra-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.5", 
+            "ip_to": "192.168.1.10", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 72, 
+                    "rtt_ms": 2.34, 
+                    "throughput_kbps": 426044, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 47, 
+                    "rtt_ms": 1.83, 
+                    "throughput_kbps": 424062, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 111, 
+                    "rtt_ms": 1.66, 
+                    "throughput_kbps": 422690, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 0.0, 
+                    "pkt_size": 128, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 14193, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 3.35, 
+                    "pkt_size": 1024, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 147663, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 0.0, 
+                    "pkt_size": 8192, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 202476, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "2.078", 
+                            "rtt_max_ms": "2.482", 
+                            "rtt_min_ms": "1.440", 
+                            "rtt_stddev": "0.297", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "2.321", 
+                            "rtt_max_ms": "2.664", 
+                            "rtt_min_ms": "1.914", 
+                            "rtt_stddev": "0.248", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "error": "ping failed", 
+                            "packet_size": 1500
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-3", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network floating IP (intra-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.5", 
+            "ip_to": "10.55.0.13", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 87, 
+                    "rtt_ms": 2.36, 
+                    "throughput_kbps": 413694, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 14, 
+                    "rtt_ms": 1.46, 
+                    "throughput_kbps": 443117, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 30, 
+                    "rtt_ms": 2.04, 
+                    "throughput_kbps": 403579, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 0.0, 
+                    "pkt_size": 128, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 8720, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 0.0, 
+                    "pkt_size": 1024, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 168308, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 2.14, 
+                    "pkt_size": 8192, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 236021, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "2.121", 
+                            "rtt_max_ms": "2.456", 
+                            "rtt_min_ms": "1.762", 
+                            "rtt_stddev": "0.208", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "2.395", 
+                            "rtt_max_ms": "3.520", 
+                            "rtt_min_ms": "2.082", 
+                            "rtt_stddev": "0.401", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "error": "ping failed", 
+                            "packet_size": 1500
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-2", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM same network fixed IP (inter-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.1.12", 
+            "ip_to": "192.168.1.10", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 615, 
+                    "rtt_ms": 1.44, 
+                    "throughput_kbps": 793528, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 117, 
+                    "rtt_ms": 1.46, 
+                    "throughput_kbps": 865476, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 674, 
+                    "rtt_ms": 1.36, 
+                    "throughput_kbps": 851632, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 0.01, 
+                    "pkt_size": 128, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 48845, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 26.37, 
+                    "pkt_size": 1024, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 365692, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 0.5, 
+                    "pkt_size": 8192, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 794762, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "1.976", 
+                            "rtt_max_ms": "4.216", 
+                            "rtt_min_ms": "1.532", 
+                            "rtt_stddev": "0.782", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "1.580", 
+                            "rtt_max_ms": "1.946", 
+                            "rtt_min_ms": "1.266", 
+                            "rtt_stddev": "0.185", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 1500, 
+                            "rtt_avg_ms": "2.003", 
+                            "rtt_max_ms": "2.357", 
+                            "rtt_min_ms": "1.763", 
+                            "rtt_stddev": "0.207", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-2", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network fixed IP (inter-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.11", 
+            "ip_to": "192.168.1.10", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 168, 
+                    "rtt_ms": 2.25, 
+                    "throughput_kbps": 501760, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 42, 
+                    "rtt_ms": 1.62, 
+                    "throughput_kbps": 591753, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 487, 
+                    "rtt_ms": 2.84, 
+                    "throughput_kbps": 544922, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 0.58, 
+                    "pkt_size": 128, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 51285, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 12.9, 
+                    "pkt_size": 1024, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 328046, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 1.76, 
+                    "pkt_size": 8192, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 459824, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "1.937", 
+                            "rtt_max_ms": "2.205", 
+                            "rtt_min_ms": "1.763", 
+                            "rtt_stddev": "0.147", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "2.047", 
+                            "rtt_max_ms": "2.424", 
+                            "rtt_min_ms": "1.481", 
+                            "rtt_stddev": "0.241", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "error": "ping failed", 
+                            "packet_size": 1500
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-2", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network floating IP (inter-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.11", 
+            "ip_to": "10.55.0.13", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 732, 
+                    "rtt_ms": 2.26, 
+                    "throughput_kbps": 491262, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 91, 
+                    "rtt_ms": 1.88, 
+                    "throughput_kbps": 563704, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 118, 
+                    "rtt_ms": 1.91, 
+                    "throughput_kbps": 574242, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 0.83, 
+                    "pkt_size": 128, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 41867, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 3.89, 
+                    "pkt_size": 1024, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 253476, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "loss_rate": 20.55, 
+                    "pkt_size": 8192, 
+                    "protocol": "UDP", 
+                    "throughput_kbps": 441815, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "2.018", 
+                            "rtt_max_ms": "2.367", 
+                            "rtt_min_ms": "1.685", 
+                            "rtt_stddev": "0.204", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "2.052", 
+                            "rtt_max_ms": "2.421", 
+                            "rtt_min_ms": "1.766", 
+                            "rtt_stddev": "0.208", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "error": "ping failed", 
+                            "packet_size": 1500
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }
+    ], 
+    "l2agent_type": "Linux bridge agent", 
+    "run_id": "e638038", 
+    "version": "2.3.3"
+}

@@ -1,0 +1,221 @@
+{
+    "args": "/home/ubuntu/vmtpenv/bin/vmtp -d -c vmtp.cfg -r adminrc -p <MASKED> --protocol T --json test.json", 
+    "auth_url": "http://controller:35357/v3", 
+    "date": "2017-05-09 17:51:02", 
+    "encapsulation": "vxlan", 
+    "flows": [
+        {
+            "az_from": "nova:node-3", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM same network fixed IP (intra-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.1.9", 
+            "ip_to": "192.168.1.6", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 1168, 
+                    "rtt_ms": 0.69, 
+                    "throughput_kbps": 3204488, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 1793, 
+                    "rtt_ms": 0.82, 
+                    "throughput_kbps": 3063799, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 888, 
+                    "rtt_ms": 0.75, 
+                    "throughput_kbps": 2329956, 
+                    "tool": "nuttcp-7.3.2"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-3", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network fixed IP (intra-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.9", 
+            "ip_to": "192.168.1.6", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 30, 
+                    "rtt_ms": 1.7, 
+                    "throughput_kbps": 435825, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 190, 
+                    "rtt_ms": 1.35, 
+                    "throughput_kbps": 429101, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 12, 
+                    "rtt_ms": 1.65, 
+                    "throughput_kbps": 431129, 
+                    "tool": "nuttcp-7.3.2"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-3", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network floating IP (intra-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.9", 
+            "ip_to": "10.55.0.3", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 48, 
+                    "rtt_ms": 1.95, 
+                    "throughput_kbps": 392309, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 11, 
+                    "rtt_ms": 1.68, 
+                    "throughput_kbps": 439656, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 23, 
+                    "rtt_ms": 1.41, 
+                    "throughput_kbps": 433323, 
+                    "tool": "nuttcp-7.3.2"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-2", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM same network fixed IP (inter-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.1.13", 
+            "ip_to": "192.168.1.6", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 607, 
+                    "rtt_ms": 1.62, 
+                    "throughput_kbps": 801985, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 809, 
+                    "rtt_ms": 1.89, 
+                    "throughput_kbps": 803278, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 1182, 
+                    "rtt_ms": 1.69, 
+                    "throughput_kbps": 848420, 
+                    "tool": "nuttcp-7.3.2"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-2", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network fixed IP (inter-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.7", 
+            "ip_to": "192.168.1.6", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 26, 
+                    "rtt_ms": 2.28, 
+                    "throughput_kbps": 490830, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 8, 
+                    "rtt_ms": 1.81, 
+                    "throughput_kbps": 509611, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 23, 
+                    "rtt_ms": 1.89, 
+                    "throughput_kbps": 508129, 
+                    "tool": "nuttcp-7.3.2"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-2", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network floating IP (inter-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.7", 
+            "ip_to": "10.55.0.3", 
+            "results": [
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 217, 
+                    "rtt_ms": 1.98, 
+                    "throughput_kbps": 514502, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 142, 
+                    "rtt_ms": 1.7, 
+                    "throughput_kbps": 534720, 
+                    "tool": "nuttcp-7.3.2"
+                }, 
+                {
+                    "pkt_size": 65536, 
+                    "protocol": "TCP", 
+                    "retrans": 71, 
+                    "rtt_ms": 2.32, 
+                    "throughput_kbps": 522425, 
+                    "tool": "nuttcp-7.3.2"
+                }
+            ]
+        }
+    ], 
+    "l2agent_type": "Linux bridge agent", 
+    "run_id": "30476d1", 
+    "version": "2.3.3"
+}
