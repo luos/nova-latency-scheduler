@@ -1,0 +1,255 @@
+{
+    "args": "/home/ubuntu/vmtpenv/bin/vmtp -d -c vmtp.cfg -r adminrc -p <MASKED> --protocol I --json test.json", 
+    "auth_url": "http://controller:35357/v3", 
+    "date": "2017-05-09 18:40:22", 
+    "encapsulation": "vxlan", 
+    "flows": [
+        {
+            "az_from": "nova:node-3", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM same network fixed IP (intra-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.1.12", 
+            "ip_to": "192.168.1.8", 
+            "results": [
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "0.832", 
+                            "rtt_max_ms": "1.187", 
+                            "rtt_min_ms": "0.598", 
+                            "rtt_stddev": "0.184", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "0.790", 
+                            "rtt_max_ms": "1.046", 
+                            "rtt_min_ms": "0.389", 
+                            "rtt_stddev": "0.188", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 1500, 
+                            "rtt_avg_ms": "1.023", 
+                            "rtt_max_ms": "1.568", 
+                            "rtt_min_ms": "0.832", 
+                            "rtt_stddev": "0.218", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-3", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network fixed IP (intra-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.3", 
+            "ip_to": "192.168.1.8", 
+            "results": [
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "2.125", 
+                            "rtt_max_ms": "2.693", 
+                            "rtt_min_ms": "1.365", 
+                            "rtt_stddev": "0.346", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "2.077", 
+                            "rtt_max_ms": "2.493", 
+                            "rtt_min_ms": "1.726", 
+                            "rtt_stddev": "0.271", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "error": "ping failed", 
+                            "packet_size": 1500
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-3", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network floating IP (intra-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.3", 
+            "ip_to": "10.55.0.12", 
+            "results": [
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "2.110", 
+                            "rtt_max_ms": "2.486", 
+                            "rtt_min_ms": "1.686", 
+                            "rtt_stddev": "0.227", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "2.020", 
+                            "rtt_max_ms": "2.562", 
+                            "rtt_min_ms": "1.462", 
+                            "rtt_stddev": "0.340", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "error": "ping failed", 
+                            "packet_size": 1500
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-2", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM same network fixed IP (inter-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.1.6", 
+            "ip_to": "192.168.1.8", 
+            "results": [
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "1.700", 
+                            "rtt_max_ms": "3.471", 
+                            "rtt_min_ms": "1.276", 
+                            "rtt_stddev": "0.600", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "1.509", 
+                            "rtt_max_ms": "1.819", 
+                            "rtt_min_ms": "1.244", 
+                            "rtt_stddev": "0.172", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 1500, 
+                            "rtt_avg_ms": "1.964", 
+                            "rtt_max_ms": "2.444", 
+                            "rtt_min_ms": "1.604", 
+                            "rtt_stddev": "0.218", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-2", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network fixed IP (inter-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.11", 
+            "ip_to": "192.168.1.8", 
+            "results": [
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "2.142", 
+                            "rtt_max_ms": "2.321", 
+                            "rtt_min_ms": "2.015", 
+                            "rtt_stddev": "0.104", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "2.012", 
+                            "rtt_max_ms": "2.239", 
+                            "rtt_min_ms": "1.736", 
+                            "rtt_stddev": "0.166", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "error": "ping failed", 
+                            "packet_size": 1500
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }, 
+        {
+            "az_from": "nova:node-2", 
+            "az_to": "nova:node-3", 
+            "desc": "VM to VM different network floating IP (inter-node)", 
+            "distro_id": "Ubuntu", 
+            "distro_version": "16.04", 
+            "ip_from": "192.168.2.11", 
+            "ip_to": "10.55.0.12", 
+            "results": [
+                {
+                    "protocol": "ICMP", 
+                    "results": [
+                        {
+                            "packet_size": 64, 
+                            "rtt_avg_ms": "2.027", 
+                            "rtt_max_ms": "2.256", 
+                            "rtt_min_ms": "1.759", 
+                            "rtt_stddev": "0.162", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "packet_size": 391, 
+                            "rtt_avg_ms": "2.092", 
+                            "rtt_max_ms": "2.469", 
+                            "rtt_min_ms": "1.799", 
+                            "rtt_stddev": "0.184", 
+                            "rx_packets": "10", 
+                            "tx_packets": "10"
+                        }, 
+                        {
+                            "error": "ping failed", 
+                            "packet_size": 1500
+                        }
+                    ], 
+                    "tool": "ping"
+                }
+            ]
+        }
+    ], 
+    "l2agent_type": "Linux bridge agent", 
+    "run_id": "c202181", 
+    "version": "2.3.3"
+}

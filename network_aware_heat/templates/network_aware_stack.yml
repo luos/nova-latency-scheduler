@@ -21,9 +21,9 @@ resources:
         - { to_host: gateway-2, bandwidth: 20_000 }
         - { to_host: logger-1, bandwidth: 1000 }
       maximum_latency:
-        - { to:host: gateway-1, latency: 30 }
-        - { to:host: gateway-2, latency: 60 }
-        - { to:host: logger-1, latency: 100 }
+        - { to_host: gateway-1, latency: 30 }
+        - { to_host: gateway-2, latency: 60 }
+        - { to_host: logger-1, latency: 100 }
   secondary_server:
     depends_on: main_server
     properties:
@@ -33,8 +33,8 @@ resources:
         - { to_host: get_attr: [ main_server, host ], bandwidth: 1000 }
         - { to_host: gateway-5, bandwidth: 120 }
       maximum_latency:
-        - { to:host: get_attr: [ main_server, host ], latency: 20 }
-        - { to:host: gateway-5, latency: 112 }
+        - { to_host: get_attr: [ main_server, host ], latency: 20 }
+        - { to_host: gateway-5, latency: 112 }
 
 
 outputs:

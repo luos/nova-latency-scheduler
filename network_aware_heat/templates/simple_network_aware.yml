@@ -21,6 +21,17 @@ resources:
       maximum_latency:
         - { to_host: node-2, latency: 500 }
         - { to_host: node-2, latency: 501 }
+  secondary_server:
+    depends_on: main_server
+    properties:
+      image: cirros
+      flavor: test-flavor
+     expected_bandwidth:
+        - { to_host: get_attr: [ main_server, host ], bandwidth: 1000 }
+        - { to_host: gateway-5, bandwidth: 120 }
+      maximum_latency:
+        - { to_host: get_attr: [ main_server, host ], latency: 20 }
+        - { to_host: gateway-5, latency: 112 }
 
 outputs:
   instance_name:
